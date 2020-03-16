@@ -14,7 +14,7 @@ const router = express.Router();
 app.get("/", async (req, res, next) => {
   console.log('1')
   const data = await getSpreadsheetData()
-  res.json({ data: data })
+  res.json({'hi':'hi'})
 
 });
 

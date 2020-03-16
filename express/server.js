@@ -4,8 +4,8 @@ const path = require('path');
 const serverless = require('serverless-http');
 const app = express();
 const bodyParser = require('body-parser');
-var cors = require('cors')
-app.use(cors())
+// var cors = require('cors')
+// app.use(cors())
 const Tabletop = require('tabletop');
 const spreadsheetURL = 'https://docs.google.com/spreadsheets/d/1s04Abd0bfNFVYOU-_8pnsTqq1N8mbYDpT5iYnzYlPas/edit?usp=sharing'
 
@@ -14,8 +14,6 @@ const router = express.Router();
 app.get("/", async (req, res, next) => {
   console.log('1')
   const data = await getSpreadsheetData()
-
-
   res.json({ data: data })
 
 });

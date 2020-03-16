@@ -14,7 +14,7 @@ const router = express.Router();
 app.get("/", async (req, res, next) => {
   console.log('1')
   const data = await getSpreadsheetData()
-  res.json({'hi':'hi'})
+  res.json({ data: data })
 
 });
 
@@ -33,7 +33,7 @@ async function getSpreadsheetData() {
 
 app.use(bodyParser.json());
 app.use('/.netlify/functions/server', router);  // path must route to lambda
-app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
+//app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
 
 module.exports = app;
 module.exports.handler = serverless(app);
